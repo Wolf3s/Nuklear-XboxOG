@@ -140,7 +140,7 @@ void __cdecl main()
             memset(&mouseState, 0, sizeof(mouseState));
             if (input_manager::try_get_mouse_state(-1, &mouseState))
             {
-                nk_fill_rect(canvas.painter, nk_rect(mouseState.x,mouseState.y,10,10), 5, nk_rgb(255, 0, 255));
+                nk_fill_rect(canvas.painter, nk_rect(mouseState.x - 5, mouseState.y  - 5, 10,10), 5, nk_rgb(255, 0, 255));
             }
         }
         canvas_end(context, &canvas);
