@@ -14,7 +14,7 @@ typedef struct nk_vertex
     float position[3];
     nk_byte col[4];
     float uv[2];
-};
+} nk_vertex;
 
 nk_buffer _commands;
 nk_context _context;
@@ -98,7 +98,7 @@ void nk_render::render(uint32_t background_color)
         }
         else
         {
-            D3DVIEWPORT8 vp = { command->clip_rect.x, (DWORD)command->clip_rect.y, (DWORD)command->clip_rect.w, (DWORD)command->clip_rect.h, 0.0f, 1.0f };
+            D3DVIEWPORT8 vp = { (DWORD)command->clip_rect.x, (DWORD)command->clip_rect.y, (DWORD)command->clip_rect.w, (DWORD)command->clip_rect.h, 0.0f, 1.0f };
             graphics::getDevice()->SetViewport(&vp);
         }
 
