@@ -59,8 +59,6 @@ void __cdecl main()
         nk_canvas canvas;
         canvas_begin(context, &canvas, 0, 0, 0, graphics::getWidth(), graphics::getHeight(), nk_rgb(250,250,250));
         {
-   
-
             nk_fill_rect(canvas.painter, nk_rect(15,15,210,210), 5, nk_rgb(247, 230, 154));
             nk_fill_rect(canvas.painter, nk_rect(20,20,200,200), 5, nk_rgb(188, 174, 118));
             nk_draw_text(canvas.painter, nk_rect(30, 30, 150, 20), "Text to draw", 12, &font->handle, nk_rgb(188,174,118), nk_rgb(0,0,0));
