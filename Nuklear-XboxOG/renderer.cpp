@@ -37,7 +37,7 @@ bool renderer::init()
     int image_height;
     const void* image_data = nk_font_atlas_bake(&atlas, &image_width, &image_height, NK_FONT_ATLAS_RGBA32);
 
-    _font_texture = graphics::createImage((uint8_t*)image_data, D3DFMT_LIN_A8R8G8B8, image_width, image_height);
+    _font_texture = graphics::createImage((uint8_t*)image_data, D3DFMT_A8R8G8B8, image_width, image_height);
 
     nk_draw_null_texture null_texture;
     nk_font_atlas_end(&atlas, nk_handle_ptr(_font_texture), &null_texture);
