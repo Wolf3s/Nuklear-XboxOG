@@ -56,4 +56,5 @@ public:
     static bool mouse_pressed(MOUSE_BUTTON button, int port);
     static bool try_get_mouse_state(int port, MouseState* mouseState);
     static bool try_get_keyboard_state(int port, KeyboardState* keyboardState);
+    static void pump_input(nk_context *context);
 };

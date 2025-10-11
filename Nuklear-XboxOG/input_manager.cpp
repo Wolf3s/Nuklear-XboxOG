@@ -185,3 +185,54 @@ bool input_manager::try_get_keyboard_state(int port, KeyboardState* keyboardStat
     }
 	return false;
 }
+
+void input_manager::pump_input(nk_context *context)
+{
+    process_mouse();
+    process_keyboard();
+
+    nk_input_begin(context);
+
+    KeyboardState keyboardState;
+    memset(&keyboardState, 0, sizeof(keyboardState));
+    if (try_get_keyboard_state(-1, &keyboardState))
+    {
+        nk_input_key(context, NK_KEY_DEL, keyboardState.virtual_key == VK_DELETE && keyboardState.key_down);
+        nk_input_key(context, NK_KEY_ENTER, keyboardState.virtual_key == VK_RETURN && keyboardState.key_down);
+        nk_input_key(context, NK_KEY_TAB, keyboardState.virtual_key == VK_TAB && keyboardState.key_down);
+        nk_input_key(context, NK_KEY_BACKSPACE, keyboardState.virtual_key == VK_BACK && keyboardState.key_down);
+        nk_input_key(context, NK_KEY_LEFT, keyboardState.virtual_key == VK_LEFT && keyboardState.key_down);
+        nk_input_key(context, NK_KEY_RIGHT, keyboardState.virtual_key == VK_RIGHT && keyboardState.key_down);
+        nk_input_key(context, NK_KEY_UP, keyboardState.virtual_key == VK_UP && keyboardState.key_down);
+        nk_input_key(context, NK_KEY_DOWN, keyboardState.virtual_key == VK_DOWN && keyboardState.key_down);
+
+        if (keyboardState.button[KEYBOARD_CTRL_BUTTON] && keyboardState.key_down) 
+        {
+            nk_input_key(context, NK_KEY_COPY, keyboardState.ascii == 'c' || keyboardState.ascii == 'C');
+            nk_input_key(context, NK_KEY_PASTE, keyboardState.ascii == 'p' || keyboardState.ascii == 'P');
+            nk_input_key(context, NK_KEY_CUT, keyboardState.ascii == 'x' || keyboardState.ascii == 'X');
+        } 
+        else 
+        {
+            nk_input_key(context, NK_KEY_COPY, 0);
+            nk_input_key(context, NK_KEY_PASTE, 0);
+            nk_input_key(context, NK_KEY_CUT, 0);
+        }
+
+        if (keyboardState.ascii >= 0x20 && keyboardState.ascii <= 0x7e && keyboardState.key_down == true)
+        {
+            nk_input_char(context, keyboardState.ascii);
+        }
+    }
+
+    MouseState mouseState;
+    memset(&mouseState, 0, sizeof(mouseState));
+    if (try_get_mouse_state(-1, &mouseState))
+    {
+        nk_input_motion(context, mouseState.x, mouseState.y);
+        nk_input_button(context, NK_BUTTON_LEFT, mouseState.x, mouseState.y, mouseState.button[MOUSE_LEFT_BUTTON]);
+        nk_input_button(context, NK_BUTTON_MIDDLE, mouseState.x, mouseState.y, mouseState.button[MOUSE_MIDDLE_BUTTON]);
+        nk_input_button(context, NK_BUTTON_RIGHT, mouseState.x, mouseState.y, mouseState.button[MOUSE_RIGHT_BUTTON]);
+    }
+    nk_input_end(context);
+}
