@@ -28,8 +28,8 @@ void __cdecl main()
         /* create/update window and set position + size */
         nk_flags flags = 0;
         flags = flags & ~NK_WINDOW_DYNAMIC;
-        nk_window_set_bounds(context, "Window", nk_rect(0, 0, graphics::getWidth(), graphics::getHeight()));
-        nk_begin(context, "Window", nk_rect(0, 0, graphics::getWidth(), graphics::getHeight()), NK_WINDOW_NO_SCROLLBAR|flags);
+        nk_window_set_bounds(context, "Window", nk_rect(0, 0, (float)graphics::getWidth(), (float)graphics::getHeight()));
+        nk_begin(context, "Window", nk_rect(0, 0, (float)graphics::getWidth(), (float)graphics::getHeight()), NK_WINDOW_NO_SCROLLBAR|flags);
 
         /* allocate the complete window space for drawing */
         struct nk_rect total_space;
