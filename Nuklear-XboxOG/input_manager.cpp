@@ -27,8 +27,6 @@ void input_manager::init()
     memset(mMouseStatesPrevious, 0, sizeof(mMouseStatesPrevious));
 
     memset(mKeyboardHandles, 0, sizeof(mKeyboardHandles));
-    //mKeyboardPressedCurrent = false;
-    //mKeyboardPressedPrevious = false;
     memset(&mKeyboardState, 0, sizeof(mKeyboardState));
 
     XINPUT_DEBUG_KEYQUEUE_PARAMETERS keyboardSettings;

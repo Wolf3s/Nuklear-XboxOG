@@ -282,7 +282,7 @@
 				RelativePath=".\math.cpp">
 			</File>
 			<File
-				RelativePath=".\nk_render.cpp">
+				RelativePath=".\renderer.cpp">
 			</File>
 			<File
 				RelativePath=".\stdafx.cpp">
@@ -338,10 +338,10 @@
 				RelativePath=".\math.h">
 			</File>
 			<File
-				RelativePath=".\nk_render.h">
+				RelativePath=".\nuklear.h">
 			</File>
 			<File
-				RelativePath=".\nuklear.h">
+				RelativePath=".\renderer.h">
 			</File>
 			<File
 				RelativePath=".\stb_image.h">
@@ -350,9 +350,6 @@
 				RelativePath=".\stdafx.h">
 			</File>
 		</Filter>
-		<File
-			RelativePath=".\ReadMe.txt">
-		</File>
 	</Files>
 	<Globals>
 	</Globals>

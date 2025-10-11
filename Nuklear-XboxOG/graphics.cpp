@@ -272,24 +272,24 @@ D3DTexture* graphics::createImage(uint8_t* imageData, D3DFORMAT format, int widt
 	D3DLOCKED_RECT lockedRect;
 	if (SUCCEEDED(texture->LockRect(0, &lockedRect, NULL, 0)))
 	{
-		uint8_t* tempBuffer = (uint8_t*)malloc(surfaceDesc.Size);
-		memset(tempBuffer, 0, surfaceDesc.Size);
-		uint8_t* src = imageData;
-		uint8_t* dst = tempBuffer;
-		for (int32_t y = 0; y < height; y++)
-		{
-			memcpy(dst, src, width * 4);
-			src += width * 4;
-			dst += surfaceDesc.Width * 4;
-		}
-		swizzle(tempBuffer, 4, surfaceDesc.Width, surfaceDesc.Height, lockedRect.pBits);
-		free(tempBuffer);
+		//uint8_t* tempBuffer = (uint8_t*)malloc(surfaceDesc.Size);
+		//memset(tempBuffer, 0, surfaceDesc.Size);
+		//uint8_t* src = imageData;
+		//uint8_t* dst = tempBuffer;
+		//for (int32_t y = 0; y < height; y++)
+		//{
+		//	memcpy(dst, src, width * 4);
+		//	src += width * 4;
+		//	dst += surfaceDesc.Width * 4;
+		//}
+		//swizzle(tempBuffer, 4, surfaceDesc.Width, surfaceDesc.Height, lockedRect.pBits);
+		//free(tempBuffer);
 
-    //for (int y = 0; y < height; y++) {
-    //    void *src = (char *)imageData + y * width * 4;
-    //    void *dst = (char *)lockedRect.pBits + y * lockedRect.Pitch;
-    //    memcpy(dst, src, width * 4);
-    //}
+    for (int y = 0; y < height; y++) {
+        void *src = (char *)imageData + y * width * 4;
+        void *dst = (char *)lockedRect.pBits + y * lockedRect.Pitch;
+        memcpy(dst, src, width * 4);
+    }
 
 		texture->UnlockRect(0);
 	}

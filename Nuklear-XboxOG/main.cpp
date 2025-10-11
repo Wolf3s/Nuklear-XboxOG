@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "graphics.h"
-#include "nk_render.h"
+#include "renderer.h"
 #include "input_manager.h"
 
 static void pump_input(struct nk_context *context)
@@ -99,14 +99,14 @@ canvas_end(struct nk_context *ctx, struct nk_canvas *canvas)
 
 void __cdecl main()
 {
-    nk_render::init();
+    renderer::init();
     input_manager::init();
 
     int width = graphics::getWidth();
     int height = graphics::getHeight();
 
-    nk_context* context = nk_render::get_context();
-    nk_font* font = nk_render::get_font();
+    nk_context* context = renderer::get_context();
+    nk_font* font = renderer::get_font();
 
     while (true)
     {
@@ -126,14 +126,14 @@ void __cdecl main()
             nk_fill_triangle(canvas.painter, 250, 250, 350, 250, 300, 350, nk_rgb(0,255,0));
             nk_fill_arc(canvas.painter, 300, 180, 50, 0, 3.141592654f * 3.0f / 4.0f, nk_rgb(255,255,0));
 
-            {float points[12];
+            float points[12];
             points[0] = 200; points[1] = 250;
             points[2] = 250; points[3] = 350;
             points[4] = 225; points[5] = 350;
             points[6] = 200; points[7] = 300;
             points[8] = 175; points[9] = 350;
             points[10] = 150; points[11] = 350;
-            nk_fill_polygon(canvas.painter, points, 6, nk_rgb(0,0,0));}
+            nk_fill_polygon(canvas.painter, points, 6, nk_rgb(0,0,0));
 
             nk_stroke_line(canvas.painter, 15, 10, 200, 10, 2.0f, nk_rgb(189,45,75));
             nk_stroke_rect(canvas.painter, nk_rect(370, 20, 100, 100), 10, 3, nk_rgb(0,0,255));
@@ -151,6 +151,6 @@ void __cdecl main()
         }
         canvas_end(context, &canvas);
 
-        nk_render::render(0xff333333);
+        renderer::render(0xff333333);
     }
 }

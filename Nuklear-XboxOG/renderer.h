@@ -10,7 +10,7 @@
 #define NK_INCLUDE_DEFAULT_FONT
 #include "nuklear.h"
 
-class nk_render
+class renderer
 {
 public:
     static bool init();

@@ -1,4 +1,4 @@
-#include "nk_render.h"
+#include "renderer.h"
 #include "graphics.h"
 
 #define NK_INCLUDE_STANDARD_IO
@@ -23,7 +23,7 @@ nk_font* _font;
 nk_convert_config _config;
 D3DTexture* _font_texture;
 
-bool nk_render::init()
+bool renderer::init()
 {
     graphics::createDevice();
     nk_buffer_init_default(&_commands);
@@ -37,7 +37,7 @@ bool nk_render::init()
     int image_height;
     const void* image_data = nk_font_atlas_bake(&atlas, &image_width, &image_height, NK_FONT_ATLAS_RGBA32);
 
-    _font_texture = graphics::createImage((uint8_t*)image_data, D3DFMT_A8R8G8B8, image_width, image_height);
+    _font_texture = graphics::createImage((uint8_t*)image_data, D3DFMT_LIN_A8R8G8B8, image_width, image_height);
 
     nk_draw_null_texture null_texture;
     nk_font_atlas_end(&atlas, nk_handle_ptr(_font_texture), &null_texture);
@@ -64,7 +64,7 @@ bool nk_render::init()
     return true;
 }
 
-void nk_render::render(uint32_t background_color)
+void renderer::render(uint32_t background_color)
 {
     graphics::getDevice()->BeginScene();
     graphics::getDevice()->Clear(0L, NULL, D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, background_color, 1.0f, 0L);
@@ -116,12 +116,12 @@ void nk_render::render(uint32_t background_color)
 	graphics::getDevice()->Present(NULL, NULL, NULL, NULL);
 }
 
-nk_context* nk_render::get_context()
+nk_context* renderer::get_context()
 {
     return &_context;
 }
 
-nk_font* nk_render::get_font()
+nk_font* renderer::get_font()
 {
     return _font;
 }
