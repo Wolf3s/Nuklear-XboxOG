@@ -306,6 +306,19 @@ bool input_manager::try_get_mouse_state(int port, MouseState* mouseState)
 	return false;
 }
 
+bool input_manager::has_controller(int port)
+{
+	for (int i = 0; i < XGetPortCount(); i++)
+	{
+		if (port >= 0 && port != i || mControllerHandles[i] == NULL)
+		{
+			continue;
+		}
+        return true;
+	}
+	return false;
+}
+
 bool input_manager::has_mouse(int port)
 {
 	for (int i = 0; i < XGetPortCount(); i++)
