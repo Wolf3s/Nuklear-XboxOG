@@ -13,6 +13,11 @@ Nuklear for Xbox Original is a immediate mode UI system for the Xbox Original.
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/Team-Resurgent/Nuklear-XboxOG?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Team-Resurgent/Nuklear-XboxOG?style=flat-square)
 
+## 🎮 RXDK Compatibility
+
+This project has been updated to work with **RXDK**, which provides a modern development environment for the Original Xbox. You can find RXDK here:  
+[https://github.com/Team-Resurgent/RXDK](https://github.com/Team-Resurgent/RXDK)
+
 # Screenshots
 
 <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
