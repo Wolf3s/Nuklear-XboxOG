@@ -217,6 +217,7 @@ nk_end(&ctx);
 ## API
 
 */
+
 #ifndef NK_SINGLE_FILE
   #define NK_SINGLE_FILE
 #endif
@@ -316,7 +317,7 @@ extern "C" {
 
 #ifdef NK_INCLUDE_STANDARD_VARARGS
   #include <stdarg.h>
-  #if defined(_MSC_VER) && (_MSC_VER >= 1600) /* VS 2010 and above */
+  #if defined(_MSC_VER) && (_MSC_VER >= 1600) && !defined(_XBOX) /* VS 2010 and above */
     #include <sal.h>
     #define NK_PRINTF_FORMAT_STRING _Printf_format_string_
   #else

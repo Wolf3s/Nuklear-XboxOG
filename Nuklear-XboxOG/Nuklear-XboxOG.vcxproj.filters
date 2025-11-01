@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Text Include="Media\Copy Assets Here.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Demos">
+      <UniqueIdentifier>{a88bc805-9648-44c0-b700-e14b09dc12e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Demos\calculator.cpp">
+      <Filter>Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\canvas.cpp">
+      <Filter>Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\controls.cpp">
+      <Filter>Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\focus.cpp">
+      <Filter>Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\overview.cpp">
+      <Filter>Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\style.cpp">
+      <Filter>Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="debug.cpp" />
+    <ClCompile Include="graphics.cpp" />
+    <ClCompile Include="input_manager.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="math.cpp" />
+    <ClCompile Include="renderer.cpp" />
+    <ClCompile Include="sphere.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Demos\calculator.h">
+      <Filter>Demos</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\canvas.h">
+      <Filter>Demos</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\controls.h">
+      <Filter>Demos</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\focus.h">
+      <Filter>Demos</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\overview.h">
+      <Filter>Demos</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\style.h">
+      <Filter>Demos</Filter>
+    </ClInclude>
+    <ClInclude Include="debug.h" />
+    <ClInclude Include="futura_thin_ttf.h" />
+    <ClInclude Include="graphics.h" />
+    <ClInclude Include="input_manager.h" />
+    <ClInclude Include="math.h" />
+    <ClInclude Include="nuklear.h" />
+    <ClInclude Include="renderer.h" />
+    <ClInclude Include="sphere.h" />
+    <ClInclude Include="sphere_image.h" />
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="stdint.h" />
+  </ItemGroup>
+</Project>
